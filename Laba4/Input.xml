@@ -1,0 +1,50 @@
+<factory>
+    <bike>
+        <id>004</id>
+        <date>2022-11-05</date>
+        <model>Specialized Turbo Vado 4.0</model>
+        <type>Электровелосипед</type>
+        <price>3500 USD</price>
+        <max_speed>45</max_speed>
+    </bike>
+    <bike>
+        <id>005</id>
+        <date>2023-01-25</date>
+        <model>Salsa Mukluk</model>
+        <type>Фэтбайк</type>
+        <price>1800 USD</price>
+        <max_speed>40</max_speed>
+    </bike>
+    <bike>
+        <id>006</id>
+        <date>2022-05-14</date>
+        <model>Cannondale TDR 12</model>
+        <type>Горный велосипед</type>
+        <price>2200 USD</price>
+        <max_speed>35</max_speed>
+    </bike>
+    <bike>
+        <id>001</id>
+        <date>2022-03-15</date>
+        <model>Trek Marlin 7</model>
+        <type>Горный велосипед</type>
+        <price>850 USD</price>
+        <max_speed>45</max_speed>
+    </bike>
+    <bike>
+        <id>002</id>
+        <date>2023-05-10</date>
+        <model>Giant TCR Advanced 1</model>
+        <type>Шоссейный велосипед</type>
+        <price>2000 USD</price>
+        <max_speed>60</max_speed>
+    </bike>
+    <bike>
+        <id>003</id>
+        <date>2021-08-20</date>
+        <model>Cannondale Quick 4</model>
+        <type>Городской велосипед</type>
+        <price>700 USD</price>
+        <max_speed>35</max_speed>
+    </bike>
+</factory>

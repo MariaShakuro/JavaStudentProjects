@@ -1,0 +1,26 @@
+<factory>
+    <bike>
+        <id>001</id>
+        <date>2023-01-25</date>
+        <model>Specialized Turbo Vado 4.0</model>
+        <type>Электровелосипед</type>
+        <price>3500</price>
+        <max_speed>45</max_speed>
+    </bike>
+    <bike>
+        <id>002</id>
+        <date>2023-01-30</date>
+        <model>Giant Talon 3</model>
+        <type>Горный велосипед</type>
+        <price>800</price>
+        <max_speed>35</max_speed>
+    </bike>
+    <bike>
+        <id>003</id>
+        <date>2023-02-05</date>
+        <model>Cannondale Quick 4</model>
+        <type>Дорожный велосипед</type>
+        <price>950</price>
+        <max_speed>40</max_speed>
+    </bike>
+</factory>

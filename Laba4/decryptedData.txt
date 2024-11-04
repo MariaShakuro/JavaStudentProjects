@@ -1,0 +1,1 @@
+StructureOfVelo{id=3,date=Fri Aug 20 00:00:00 MSK 2021,type=Городской велосипед,model=Cannondale Quick 4,price=700,040000,max_speed=35,000000}

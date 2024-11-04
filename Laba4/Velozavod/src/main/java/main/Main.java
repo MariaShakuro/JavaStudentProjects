@@ -6,56 +6,100 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import static java.lang.System.out;
 import static main.XMLReader.readBikes;
-import static main.XMLWriter.writeBikes;
 
-public class Main {
+public class  Main {
     public static void main(String[] args)  {
         try{
-            String data = "Some data";
-            //Хэширование
-            String hashedData = HashUtils.hashData(data);
-            System.out.println("Hashed data: " + hashedData);
-            //Шифрование
-            String encryptedData = EncryptionUtils.encrypt(data);
-            System.out.println("Encrypted data: " + encryptedData);
-            //Дешифрование
-            String decryptedData = EncryptionUtils.decrypt(encryptedData);
-            System.out.println("Decrypted data: " + decryptedData);
-
-            // Прочитать данные из исходного XML-файла
-            List<StructureOfVelo<String>> bikes_= readBikes("Input.xml");
-            // Прочитать данные из исходного Json-файла
-            List<StructureOfVelo<String>> bikes = JSONReader.readBikesfromJSON("INPUT.json");
-
-            // Добавить новый велосипед
-            StructureOfVelo<String> newBike = new StructureOfVelo<>();
-            Date date_=DateUtils.parseDate("2023-03-10");
-            newBike.set(7, date_, "Шоссейный велосипед", "Giant TCR", 2000.0, 55.0);
-            bikes.add(newBike);
-
-            // Записать данные в новый XML-файл
-            writeBikes("Output.xml", bikes_);
-           // Записать данные в новый Json-файл
-            JSONWriter.writeBikes("OUTPUT.json",bikes);
+            out.println("Выберите формат ввода данных:\n1 - JSON\n2 - XML\n3 - TXT");
+            Scanner in=new Scanner(System.in);
+            int inputChoice = in.nextInt(); in.nextLine();
+            String inputFormat = "";
+            switch (inputChoice) {
+                case 1:
+                    inputFormat = "JSON";
+                    break;
+                    case 2:
+                        inputFormat = "XML";
+                        break;
+                        case 3: inputFormat = "TXT";
+                        break;
+                        default:
+                            System.out.println("Неверный выбор");
+                            return;
+            }
 
             ListStorage<String> listStorage = new ListStorage<>();
             MapStorage<String> mapStorage = new MapStorage<>();
-            ReadFromFile read = new ReadFromFile("input.txt");
-            read.readFile(listStorage, mapStorage);
+            List<StructureOfVelo<String>> bikes = null;
 
-            listStorage.sortByPrice();
-            //Запись в файл
-            WriteToFile write = new WriteToFile("output.txt");
+            // Прочитать данные из исходного файла в зависимости от формата
+            if (inputFormat.equals("JSON")) {
+                bikes = JSONReader.readBikesfromJSON("input.json");
+                listStorage = convertListToStorage(bikes);
+            } else if (inputFormat.equals("XML")) {
+               bikes= readBikes("input.xml");
+                listStorage = convertListToStorage(bikes);
+            } else {
+               // ReadFromFile read = new ReadFromFile("input.txt");
+                bikes =ReadFromFile.readFile("input.txt");
+                listStorage = convertListToStorage(bikes);
+            }
+
+
+            // Перебор всех элементов для хэширования, шифрования и дешифрования
+            for (StructureOfVelo<String> bike : bikes) {
+                String data = bike.toString();
+                // Хэширование
+                String hashedData = HashUtils.hashData(data);
+                System.out.println("Hashed data: " + hashedData);
+                // Шифрование
+                String encryptedData = EncryptionUtils.encrypt(data);
+                System.out.println("Encrypted data: " + encryptedData);
+                // Дешифрование
+                String decryptedData = EncryptionUtils.decrypt(encryptedData);
+                System.out.println("Decrypted data: " + decryptedData);
+            }
+
+
+            out.println("Выберите формат вывода данных:\n1 - JSON\n2 - XML\n3 - TXT");
+            int choice=in.nextInt();
+            in.nextLine();
+            String format ="";
+            String outputFilePath = "";
+            switch (choice) {
+                case 1:
+                    format = "JSON";
+                    outputFilePath = "output.json";
+                    break;
+                    case 2:
+                        format = "XML";
+                        outputFilePath = "output.xml";
+                        break;
+                        case 3:
+                            format = "TXT";
+                            outputFilePath = "output.txt";
+                            break;
+                            default:
+                                System.out.println("Неверный выбор");
+                                return;
+            }
+            // Прочитать данные из исходного файла в зависимости от формата
+            if (format.equals("JSON")) JSONWriter.writeBikes(outputFilePath, bikes);
+            else if (format.equals("XML")) XMLWriter.writeBikes(outputFilePath, bikes);
+            else {
+                 WriteToFile.WriteToFile(outputFilePath,bikes);
+            }
 
             //Итераторный вывод List
             Iterator<String> listIterator = listStorage.iterator();
-            StringBuilder listoutput=new StringBuilder();
-            listoutput.append("List items\n");
+            StringBuilder listOutput=new StringBuilder();
+            listOutput.append("List items\n");
             while(listIterator.hasNext()){
                 String listValue=listIterator.next();
-                listoutput.append(listValue).append("\n");
+                listOutput.append(listValue).append("\n");
             }
-            write.WriteToFile(listoutput.toString());
+           // WriteToFile.WriteToFile(outputFilePath,bikes);
+           // write.WriteToFile(listOutput.toString());
 
             //Итераторный вывод Map
             Iterator<Map.Entry<String, String>> mapIterator = mapStorage.iterator();
@@ -66,48 +110,96 @@ public class Main {
                 String mapValue = entry.getKey() + ":" + entry.getValue();
                 mapoutput.append(mapValue).append("\n");
             }
-            write.WriteToFile(mapoutput.toString());
+            // write.WriteToFile(mapoutput.toString());
+
+            out.println("Выберите поле для сортировки:1-id,2-date,3-type,4-model,5-price,6-max_speed");
+            int sortChoice=new Scanner(System.in).nextInt();
+            switch(sortChoice){
+                case 1:
+                    listStorage.sortByField("id");
+                    break;
+                case 2:
+                    listStorage.sortByField("date");
+                    break;
+                case 3:
+                    listStorage.sortByField("type");
+                    break;
+                case 4:
+                    listStorage.sortByField("model");
+                    break;
+                case 5:
+                    listStorage.sortByField("price");
+                    break;
+                case 6:
+                    listStorage.sortByField("max_speed");
+                    break;
+                default:
+                    return;
+            }
+            StringBuilder sortedOut=new StringBuilder();
+            for(String sortedEntry:listStorage.getList()){
+                sortedOut.append(sortedEntry).append("\n");
+                out.println(sortedEntry);
+            }
+            //  write.WriteToFile(sortedOut.toString());
+
+            // Архивация файлов
+            ZipFile.zipFile(outputFilePath, "output.zip");
+            JarFile.jarFile(outputFilePath, "output.jar");
+
         //Консольный ввод
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data for List and Map(id,date,type,model,price,max_speed):");
+       System.out.println("Enter data for List and Map(id,date,type,model,price,max_speed):");
         while (true) {
-            String input = sc.nextLine();
+            String input = in.nextLine();
             String[] parts = input.split(",");
             if (parts.length == 6) {
-                String id = parts[0].trim();
-                String date = parts[1].trim();
-                String type = parts[2].trim();
-                String model = parts[3].trim();
-                String price = parts[4].trim();
-                String maxSpeed = parts[5].trim();
-
-                String listEntry = String.format("\nList:Id %s, Date %s, Type %s, Model %s, Price %s, Max_Speed %s\n", id, date, type, model, price, maxSpeed);
-                listStorage.add(listEntry);
-                write.WriteToFile(listEntry);
-
-                String mapEntry = String.format("Map:Id: %s, Date: %s, Type: %s, Model: %s, Price: %s, Max_Speed: %s\n", id, date, type, model, price, maxSpeed);
-                mapStorage.put(id, mapEntry);
-                write.WriteToFile(mapEntry);
-
-                out.println("Сортировка по полю price");
-                StringBuilder sortedOut=new StringBuilder();
-                for(String sortedEntry:listStorage.getList()){
-                    sortedOut.append(sortedEntry).append("\n");
-                    out.println(sortedEntry);
+                StructureOfVelo<String> newBike = new StructureOfVelo<>();
+                Date date = DateUtils.parseDate(parts[1].trim());
+                newBike.set(Integer.parseInt(parts[0].trim()), date, parts[2].trim(), parts[3].trim(), Double.parseDouble(parts[4].trim()), Double.parseDouble(parts[5].trim()));
+                bikes.add(newBike);
+                if (format.equals("JSON")) {
+                    JSONWriter.writeBikes(outputFilePath, bikes);
+                } else if (format.equals("XML")) {
+                    XMLWriter.writeBikes(outputFilePath, bikes);
+                } else {
+                    WriteToFile.writeEntry(outputFilePath, newBike);
                 }
-              //  write.WriteToFile(sortedOut.toString());
-            } else {
+                //String mapEntry = String.format("Map:Id: %s, Date: %s, Type: %s, Model: %s, Price: %s, Max_Speed: %s\n", id, date, type, model, price, maxSpeed);
+               // mapStorage.put(id, mapEntry);
+           } else {
                 out.println("Invalid input");
             }
         }
-    }catch(NoSuchElementException e){
+        }
+    catch(NoSuchElementException e){
         e.printStackTrace();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+    }
+ private static ListStorage<String> convertListToStorage(List<StructureOfVelo<String>> bikes) {
+        ListStorage<String> storage = new ListStorage<>();
+  for (StructureOfVelo<String> bike : bikes) {
+      storage.add(bike.toString());
+  }
+  return storage;
+    }
+    private static List<StructureOfVelo<String>> convertStorageToList(ListStorage<String> storage) {
+        List<StructureOfVelo<String>> bikes = new ArrayList<>();
+        for (String item : storage.getList()) {
+            // Используем регулярное выражение для корректного парсинга
+            String[] parts = item.split("[:=,]+");
+            if (parts.length == 12) {
+                StructureOfVelo<String> bike = new StructureOfVelo<>();
+                Date date = DateUtils.parseDate(parts[4].trim());
+                bike.set(Integer.parseInt(parts[2].trim()), date, parts[6].trim(), parts[8].trim(), Double.parseDouble(parts[10].trim()), Double.parseDouble(parts[12].trim()));
+                bikes.add(bike);
+            }
+        }
+        return bikes;
     }
 }

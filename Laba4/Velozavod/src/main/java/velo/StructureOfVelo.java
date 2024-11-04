@@ -1,6 +1,5 @@
 package velo;
 
-import com.google.gson.annotations.Expose;
 import main.EncryptionUtils;
 import main.HashUtils;
 
@@ -61,7 +60,7 @@ public class StructureOfVelo<T> extends AbstractVelo<T> implements Comparator<St
 
     @Override
    public String toString(){
-        return "StructureOfVelo{" + "id="+id+ ",date="+date+ ",type="+type+ ",model="+model+ ",price="+price+ ",max_speed="+max_speed+ "}";
+        return String.format("StructureOfVelo{id=%d,date=%s,type=%s,model=%s,price=%f,max_speed=%f}", id, date.toString(), type, model, price, max_speed);
    }
     @Override
     public int compare(StructureOfVelo o1, StructureOfVelo o2) {

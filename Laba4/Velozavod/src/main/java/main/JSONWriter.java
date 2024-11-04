@@ -1,8 +1,10 @@
 package main;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import velo.StructureOfVelo;
 import velo.StructureOfVeloSerializer;
+
 
 import java.io.FileReader;
 import java.io.FileWriter;

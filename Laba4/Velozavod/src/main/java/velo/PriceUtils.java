@@ -1,5 +1,4 @@
 package velo;
-import main.*;
 public class PriceUtils {
     public static double extractPrice(String item) {
         try {

@@ -8,7 +8,9 @@ import static java.lang.System.out;
 import static main.XMLReader.readBikes;
 
 public class  Main {
+    private static List<StructureOfVelo> list;
     public static void main(String[] args)  {
+        list = new ArrayList<>();
         try{
             out.println("Выберите формат ввода данных:\n1 - JSON\n2 - XML\n3 - TXT");
             Scanner in=new Scanner(System.in);
@@ -113,34 +115,41 @@ public class  Main {
             // write.WriteToFile(mapoutput.toString());
 
             out.println("Выберите поле для сортировки:1-id,2-date,3-type,4-model,5-price,6-max_speed");
-            int sortChoice=new Scanner(System.in).nextInt();
-            switch(sortChoice){
+            choice = in.nextInt();
+
+            switch (choice) {
                 case 1:
-                    listStorage.sortByField("id");
+                    SortVelo.sortId(list);
                     break;
                 case 2:
-                    listStorage.sortByField("date");
+                    SortVelo.sortDate(list);
                     break;
                 case 3:
-                    listStorage.sortByField("type");
+                    SortVelo.sortType(list);
                     break;
                 case 4:
-                    listStorage.sortByField("model");
+                    SortVelo.sortModel(list);
                     break;
                 case 5:
-                    listStorage.sortByField("price");
+                    SortVelo.sortPrice(list);
                     break;
                 case 6:
-                    listStorage.sortByField("max_speed");
+                    SortVelo.sortMax_speed(list);
+                    break;
+                case 0:
+                    System.out.println("Выход из программы.");
                     break;
                 default:
-                    return;
+                    System.out.println("Неверный выбор, попробуйте снова.");
             }
-            StringBuilder sortedOut=new StringBuilder();
-            for(String sortedEntry:listStorage.getList()){
-                sortedOut.append(sortedEntry).append("\n");
-                out.println(sortedEntry);
+
+            // Выводим отсортированный список
+            System.out.println("Отсортированный список:");
+            for (StructureOfVelo velo : list) {
+                System.out.println(velo);
             }
+
+
             //  write.WriteToFile(sortedOut.toString());
 
             // Архивация файлов

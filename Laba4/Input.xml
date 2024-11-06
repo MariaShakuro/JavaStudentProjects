@@ -40,9 +40,9 @@
         <max_speed>60</max_speed>
     </bike>
     <bike>
-        <id>003</id>
+        <id>005</id>
         <date>2021-08-20</date>
-        <model>Cannondale Quick 4</model>
+        <model>Cannondale Quick 44444</model>
         <type>Городской велосипед</type>
         <price>700 USD</price>
         <max_speed>35</max_speed>

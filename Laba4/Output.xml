@@ -48,4 +48,12 @@
         <price>700.04</price>
         <max_speed>35.0</max_speed>
     </bike>
+    <bike>
+        <id>1</id>
+        <date>Wed Feb 02 00:00:00 MSK 2022</date>
+        <model>sdvsdvs</model>
+        <type>fsfvsdv</type>
+        <price>34.44</price>
+        <max_speed>23.0</max_speed>
+    </bike>
 </factory>

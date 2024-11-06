@@ -5,13 +5,16 @@ import main.HashUtils;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StructureOfVelo<T> extends AbstractVelo<T> implements Comparator<StructureOfVelo> {
     private int id;
+
+    @Override
+    public int compare(StructureOfVelo o1, StructureOfVelo o2) {
+        return 0;
+    }
+
     private Date date;
     private String type,model;
     private double price,max_speed;
@@ -31,7 +34,6 @@ public class StructureOfVelo<T> extends AbstractVelo<T> implements Comparator<St
     public Date getDATE(){
         return date;
     }
-    //public void setDATE(Date date){this.date=date;}
     public String getTYPE(){
         return type;
     }
@@ -45,7 +47,7 @@ public class StructureOfVelo<T> extends AbstractVelo<T> implements Comparator<St
         return max_speed;
     }
 
-    public String hashData(String data) throws NoSuchAlgorithmException, IOException {
+   /* public String hashData(String data) throws NoSuchAlgorithmException, IOException {
         return HashUtils.hashData(data);
     }
 
@@ -55,18 +57,10 @@ public class StructureOfVelo<T> extends AbstractVelo<T> implements Comparator<St
 
     public String decrypt(String encryptedData) throws Exception {
         return EncryptionUtils.decrypt(encryptedData);
-    }
-
-
+    }*/
     @Override
    public String toString(){
-        return String.format("StructureOfVelo{id=%d,date=%s,type=%s,model=%s,price=%f,max_speed=%f}", id, date.toString(), type, model, price, max_speed);
-   }
-    @Override
-    public int compare(StructureOfVelo o1, StructureOfVelo o2) {
-        return Double.compare(o1.getPRICE(), o2.getPRICE());
-    }
-
+        return String.format("StructureOfVelo{id=%d,date=%s,type=%s,model=%s,price=%f,max_speed=%f}", id, date.toString(), type, model, price, max_speed);}
     @Override
     public void addToList(T item) {
         ListStorage.add(item);
@@ -86,4 +80,5 @@ public class StructureOfVelo<T> extends AbstractVelo<T> implements Comparator<St
     public Map<String, T> getMap() {
         return Map.of();
     }
+
 }

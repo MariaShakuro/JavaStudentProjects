@@ -33,6 +33,7 @@ public class XMLReader {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
+                    try{
                     int id = Integer.parseInt(eElement.getElementsByTagName("id").item(0).getTextContent());
                     Date date = DateUtils.parseDate(eElement.getElementsByTagName("date").item(0).getTextContent());
                     String model = eElement.getElementsByTagName("model").item(0).getTextContent();
@@ -43,6 +44,9 @@ public class XMLReader {
                     StructureOfVelo<String> bike = new StructureOfVelo<>();
                     bike.set(id, date, type, model, price, maxSpeed);
                     bikes_.add(bike);
+                }catch(NumberFormatException | NullPointerException e){
+                        System.out.println("Некорректные данные для байка. Пропущено: " + eElement.getTextContent());
+                }
                 }
             }
 

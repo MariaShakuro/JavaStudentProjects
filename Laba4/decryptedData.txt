@@ -1,1 +1,1 @@
-StructureOfVelo{id=3,date=Fri Aug 20 00:00:00 MSK 2021,type=Городской велосипед,model=Cannondale Quick 4,price=700,040000,max_speed=35,000000}
+StructureOfVelo{id=4,date=Sat Nov 05 00:00:00 MSK 2022,type=Электровелосипед,model=Specialized Turbo Vado 4.0,price=3500,000000,max_speed=45,000000}

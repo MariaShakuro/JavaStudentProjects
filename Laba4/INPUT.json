@@ -1,15 +1,15 @@
 {
   "bikes": [
     {
-      "id": 4,
+      "id": 22,
       "date": "2022-11-05",
-      "type": "Электровелосипед",
+      "type": "Эfdfdfdf",
       "model": "Specialized Turbo Vado 4.0",
-      "price": 3500.20,
-      "max_speed": 45
+      "price": 320.20,
+      "max_speed": 10
     },
     {
-      "id": 5,
+      "id": 500,
       "date": "2023-01-25",
       "type": "Фэтбайк",
       "model": "Salsa Mukluk",
@@ -17,7 +17,7 @@
       "max_speed": 40
     },
     {
-      "id": 6,
+      "id": 600,
       "date": "2022-05-14",
       "type": "Горный велосипед",
       "model": "Cannondale TDR 12",
@@ -25,7 +25,7 @@
       "max_speed": 35
     },
     {
-      "id": 1,
+      "id": 100,
       "date": "2022-03-15",
       "type": "Горный велосипед",
       "model": "Trek Marlin 7",
@@ -33,7 +33,7 @@
       "max_speed": 45
     },
     {
-      "id": 2,
+      "id": 200,
       "date": "2023-05-10",
       "type": "Шоссейный велосипед",
       "model": "Giant TCR Advanced 1",

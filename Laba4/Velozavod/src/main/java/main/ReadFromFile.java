@@ -35,12 +35,15 @@ public class ReadFromFile {
                    StructureOfVelo<String> bike = new StructureOfVelo<>();
                    bike.set(id, date, type, model, price, max_speed);
                    bikes.add(bike);
+               }else{
+                   System.out.println("Некорректная строка пропущена: " + line);
                }
+
            }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Файл не найден: " + filepath);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Ошибка при чтении файла: " + filepath);
         }
         return bikes;
     }

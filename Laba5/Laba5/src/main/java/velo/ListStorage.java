@@ -11,6 +11,9 @@ public class ListStorage<T> {
     public List<T>getAll(){
         return storage;
     }
+    public void addAll(List<T>items){
+        storage.addAll(items);
+    }
     public void clear(){
         storage.clear();
     }

@@ -23,7 +23,7 @@ public class JSONReader {
         gsonBuilder.registerTypeAdapter(Date.class, new DateDeserializer());
         Gson gson = gsonBuilder.create();
 
-        Map<String, List<StructureOfVelo<String>>> jsonMap = gson.fromJson(new FileReader(filePath), new TypeToken<Map<String, List<StructureOfVelo<String>>>>() {}.getType());
+        Map<String, List<StructureOfVelo<String>>> jsonMap ;
 
         try {
             jsonMap = gson.fromJson(new FileReader(filePath), new TypeToken<Map<String, List<StructureOfVelo<String>>>>() {}.getType());

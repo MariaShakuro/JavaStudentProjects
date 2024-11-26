@@ -9,15 +9,15 @@ import java.util.*;
 
 public class StructureOfVelo<T> extends AbstractVelo<T> implements Comparator<StructureOfVelo> {
     private int id;
+    private Date date;
+    private String type,model;
+    private double price,max_speed;
 
     @Override
     public int compare(StructureOfVelo o1, StructureOfVelo o2) {
         return 0;
     }
 
-    private Date date;
-    private String type,model;
-    private double price,max_speed;
 
     public void set(int id,Date date,String type,String model,double price,double max_speed){
     this.id=id;

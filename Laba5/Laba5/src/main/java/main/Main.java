@@ -1,9 +1,14 @@
 package main;
 
 import database.DatabaseConnection;
+import org.h2.tools.Server;
 import velo.*;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.io.IOException;
@@ -21,7 +26,7 @@ public class Main {
             // Подключение к базе данных
             DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
             Connection connection = databaseConnection.getConnection();
-
+          Server.createWebServer("-web", "-webAllowOthers", "-webPort", "8082").start();
             // Ввод формата данных
             System.out.println("Выберите формат ввода данных:\n1 - JSON\n2 - XML\n3 - TXT");
             Scanner in = new Scanner(System.in);
@@ -53,13 +58,12 @@ public class Main {
             }
 
             // Запись объектов в базу данных
-            
             for (AbstractVelo bike : bikes) {
-                insertBikeIntoDatabase(connection, bike);
+                databaseConnection.insertBike(bike.getID(),new java.sql.Date(bike.getDATE().getTime()),bike.getTYPE(),bike.getMODEL(),bike.getPRICE(),bike.getMAX_SPEED());
             }
 
             // Чтение объектов из базы данных
-            List<AbstractVelo> bikesFromDB = readBikesFromDatabase(connection);
+            List<AbstractVelo> bikesFromDB = databaseConnection.readBikesFromDatabase();
 
             // Вывод объектов
             bikesFromDB.forEach(System.out::println);
@@ -144,7 +148,22 @@ public class Main {
             for (AbstractVelo velo : bikesFromDB) {
                 System.out.println(velo);
             }
-
+            // Архивация файлов
+            ZipFile.zipFile(outputFilePath, "output.zip");
+            JarFile.jarFile(outputFilePath, "output.jar");
+            // Перебор всех элементов для хэширования, шифрования и дешифрования
+            for (AbstractVelo bike : bikes) {
+                String data = bike.toString();
+                // Хэширование
+                String hashedData = HashUtils.hashData(data);
+                System.out.println("Hashed data: " + hashedData);
+                // Шифрование
+                String encryptedData = EncryptionUtils.encrypt(data);
+                System.out.println("Encrypted data: " + encryptedData);
+                // Дешифрование
+                String decryptedData = EncryptionUtils.decrypt(encryptedData);
+                System.out.println("Decrypted data: " + decryptedData);
+            }
             // Консольный ввод новых данных
             System.out.println("Введите данные для List и Map (id, date, type, model, price, max_speed):");
             while (true) {
@@ -185,6 +204,10 @@ public class Main {
 
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

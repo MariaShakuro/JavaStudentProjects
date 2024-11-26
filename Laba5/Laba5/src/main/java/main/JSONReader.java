@@ -40,13 +40,13 @@ public class JSONReader {
                 String type = jsonBike.get("type").getAsString();
                 String model = jsonBike.get("model").getAsString();
                 double price = jsonBike.get("price").getAsDouble();
-                double maxSpeed = jsonBike.get("max_speed").getAsDouble();
+                double max_speed = jsonBike.get("max_speed").getAsDouble();
 
                 AbstractVelo bike;
                 if ("Road".equalsIgnoreCase(type) || "Шоссейный велосипед".equalsIgnoreCase(type)) {
-                    bike = new RoadVelo(id, date, type, model, price, maxSpeed);
+                    bike = new RoadVelo(id, date, type, model, price, max_speed);
                 } else if ("Mountain".equalsIgnoreCase(type) || "Горный велосипед".equalsIgnoreCase(type)) {
-                    bike = new MountainVelo(id, date, type, model, price, maxSpeed);
+                    bike = new MountainVelo(id, date, type, model, price, max_speed);
                 } else {
                     System.out.println("Неизвестный тип: " + type);
                     continue;

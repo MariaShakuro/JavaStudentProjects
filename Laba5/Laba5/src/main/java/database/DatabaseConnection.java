@@ -1,12 +1,17 @@
 package database;
 
+import velo.AbstractVelo;
+import velo.ConcreteVelo;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class DatabaseConnection {
 
@@ -40,35 +45,57 @@ public class DatabaseConnection {
         return connection;
     }
 
-    // Метод для чтения данных из файла и вставки их в базу данных
-    public void readDataFromFile(String filename) throws IOException, SQLException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data.length == 6) {
-                    int id = Integer.parseInt(data[0].trim());
-                    String date = data[1].trim();
-                    String type = data[2].trim();
-                    String model = data[3].trim();
-                    double price = Double.parseDouble(data[4].trim());
-                    double maxSpeed = Double.parseDouble(data[5].trim());
-
-                    insertData(id, date, type, model, price, maxSpeed);
+    // Метод для проверки существования записи
+    public boolean bikeExists(int id) throws SQLException {
+        String query = "SELECT COUNT(*) FROM velo WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    System.out.println("Количество записей с id = " + id + ": " + count);
+                    return count > 0;
                 }
             }
         }
+        return false;
     }
 
-    // Метод для вставки данных в базу данных
-    public void insertData(int id, String date, String type, String model, double price, double maxSpeed) throws SQLException {
-        String query = String.format("INSERT INTO velo (id, date, type, model, price, max_speed) VALUES (%d, '%s', '%s', '%s', %.2f, %.2f)",
-                id, date, type, model, price, maxSpeed);
-        try (Statement stmt = connection.createStatement()) {
-            stmt.execute(query);
+
+    // Метод для чтения данных из файла и вставки их в базу данных
+    public void insertBike(int id, java.sql.Date date, String type, String model, double price, double maxSpeed) throws SQLException {
+        String query = "INSERT INTO velo (id, date, type, model, price, max_speed) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            stmt.setDate(2, date);
+            stmt.setString(3, type);
+            stmt.setString(4, model);
+            stmt.setDouble(5, price);
+            stmt.setDouble(6, maxSpeed);
+            stmt.executeUpdate();
+            System.out.println("Запись с id = " + id + " добавлена.");
         } catch (SQLException e) {
             throw new SQLException("Ошибка вставки данных в базу данных", e);
         }
     }
+    // Метод для чтения объектов из базы данных
+    public List<AbstractVelo> readBikesFromDatabase() throws SQLException {
+        List<AbstractVelo> bikes = new ArrayList<>();
+        String query = "SELECT * FROM velo";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                Date date = rs.getDate("date");
+                String type = rs.getString("type");
+                String model = rs.getString("model");
+                double price = rs.getDouble("price");
+                double max_speed = rs.getDouble("max_speed");
+                bikes.add(new ConcreteVelo(id, date, type, model, price, max_speed));
+            }
+        }
+            return bikes;
+        }
 }
 

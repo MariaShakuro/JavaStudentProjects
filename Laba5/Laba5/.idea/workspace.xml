@@ -5,24 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e287154-0829-4d7b-ae02-28810ad268b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/EncryptionUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/HashUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/JSONReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/JSONWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/JarFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ReadFromFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/WriteToFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/XMLReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/XMLWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ZipFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/velo/AbstractVelo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/velo/DateDeserializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/velo/DateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/velo/ListStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/velo/MapStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/velo/PriceUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/velo/StructureOfVelo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/velo/StructureOfVeloSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/Laba5.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
@@ -30,21 +12,16 @@
       <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/src/main/java/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/src/main/java/velo/AbstractVelo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/src/main/java/velo/ListStorage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/src/main/java/velo/MapStorage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/src/main/java/velo/PriceUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/src/main/java/velo/ReadFromFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/src/main/java/velo/StructureOfVelo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laba4_2/src/main/java/velo/WriteToFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../output.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../readme.cmd" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +38,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2oOpnAxhX3f5ulHYuzmpGLhvj2U" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -71,9 +48,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/from_past_pc/Labs 2 grade/JavaStudentProjects/JavastudentProjects/Laba6",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

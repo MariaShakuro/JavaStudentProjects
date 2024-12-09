@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50fd21bc-217a-4dbd-8d24-6f2e69e4956e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Laba5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Laba5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.cmd" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Laba6/input.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Laba6/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Laba6/input.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Laba6/output.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Laba6/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Laba6/output.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laba6/src/main/java/org/example/laba6/WriterToFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Laba6/src/main/java/org/example/laba6/WriteToFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,23 +22,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2pkMXxM3tXBOOmjwrSgSGwqae4K" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/from_past_pc/Labs 2 grade/JavaStudentProjects/JavastudentProjects/Laba5"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/from_past_pc/Labs 2 grade/JavaStudentProjects/JavastudentProjects/Laba5&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laba6.Controller">
+  <TextArea fx:id="inputTextField" />
+  <CheckBox fx:id="txtInput" text="txt" />
+  <CheckBox fx:id="xmlInput" text="xml" />
+  <CheckBox fx:id="jsonInput" text="json" />
+  <TextArea fx:id="outputTextField" />
+  <CheckBox fx:id="txtOutput" text="txt" />
+  <CheckBox fx:id="xmlOutput" text="xml" />
+  <CheckBox fx:id="jsonOutput" text="json" />
+  <Button fx:id="formatButton" text="Форматировать" />
+  <RadioButton fx:id="jarBox" text="JAR" />
+  <RadioButton fx:id="zipBox" text="ZIP" />
+  <Button fx:id="saveButton_1" text="Сохранить" />
+  <RadioButton fx:id="sortDate" text="Sort by Date" />
+  <RadioButton fx:id="sortId" text="Sort by ID" />
+  <RadioButton fx:id="sortMax_speed" text="Sort by Max Speed" />
+  <RadioButton fx:id="sortModel" text="Sort by Model" />
+  <RadioButton fx:id="sortPrice" text="Sort by Price" />
+  <RadioButton fx:id="sortType" text="Sort by Type" />
+  <Button fx:id="sortButton" text="Sort" />
+  <RadioButton fx:id="shifrBox" text="Encrypt" />
+  <RadioButton fx:id="hashBox" text="Hash" />
+  <Button fx:id="saveButton_2" text="Save" />
+  <Button fx:id="ttt" text="Save Data" onAction="#handleSaveButtonAction"/>
+
+</VBox>
+

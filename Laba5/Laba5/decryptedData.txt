@@ -1,0 +1,1 @@
+RoadVelo [id=6, date=Fri Aug 20 00:00:00 MSK 2021, type=Шоссейный велосипед,model=Cannondale Quick 4,price=700.04,max_speed=35.0]

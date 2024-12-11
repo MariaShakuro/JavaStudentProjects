@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<factory>
+    <bike>
+        <id>5</id>
+        <date>Wed Jan 25 00:00:00 MSK 2023</date>
+        <model>Salsa Mukluk</model>
+        <type>Фэтбайк</type>
+        <price>800.0</price>
+        <max_speed>40.0</max_speed>
+    </bike>
+    <bike>
+        <id>6</id>
+        <date>Sat May 14 00:00:00 MSK 2022</date>
+        <model>Cannondale TDR 12</model>
+        <type>Горный велосипед</type>
+        <price>2200.0</price>
+        <max_speed>35.0</max_speed>
+    </bike>
+</factory>

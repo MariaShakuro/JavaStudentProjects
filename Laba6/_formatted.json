@@ -2,7 +2,7 @@
   "bikes": [
     {
       "id": 5,
-      "date": "2023-01-25",
+      "date": "Jan 25, 2023, 12:00:00 AM",
       "type": "Фэтбайк",
       "model": "Salsa Mukluk",
       "price": 800.0,
@@ -10,7 +10,7 @@
     },
     {
       "id": 6,
-      "date": "2022-05-14",
+      "date": "May 14, 2022, 12:00:00 AM",
       "type": "Горный велосипед",
       "model": "Cannondale TDR 12",
       "price": 2200.0,

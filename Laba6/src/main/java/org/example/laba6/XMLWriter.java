@@ -15,7 +15,7 @@ import java.util.List;
 
 public class XMLWriter {
 
-    public static void writeBikes(String filePath, List<AbstractVelo> bikes) {
+    public static  <T extends AbstractVelo> void writeBikes(String filePath, List<T> bikes) {
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();

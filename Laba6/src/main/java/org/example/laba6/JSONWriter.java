@@ -13,14 +13,14 @@ import java.util.Map;
 
 public class JSONWriter {
 
-    public static void writeBikes(String filePath, List<AbstractVelo> bikes) {
+    public static <T extends AbstractVelo> void writeBikes(String filePath, List<T> bikes) {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.registerTypeAdapter(Date.class, new DateSerializer());
         gsonBuilder.registerTypeAdapter(AbstractVelo.class, new AbstractVeloSerializer());
         Gson gson = gsonBuilder.create();
 
-        Map<String, List<AbstractVelo>> jsonMap = new HashMap<>();
+        Map<String, List<T>> jsonMap = new HashMap<>();
         jsonMap.put("bikes", bikes);
 
         try (FileWriter writer = new FileWriter(filePath)) {
